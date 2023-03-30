@@ -1,0 +1,52 @@
+Base 58 - bez slicnih slova i brojeva
+	    - za pretvaranje adresa u kraci i jednostavniji oblik
+		
+Kodiranje - Matematicke operacije koriste CIJELOBROJNU aritmetiku
+		  - 1. inicijalizira se zero_counter na nulu (0x0)
+		  - 2. encoding_flag na nulu
+		  - 3. niz b58_bytes i carry vrijednost na nulu, za svaki bajt
+		       u nizu bajtova i dok prenosenje nije jednako nuli nakon 
+			   prve iteracije
+			   
+Dekodiranje - CIJELI BROJEVI se koriste
+
+Hash funkcije i SHA-256 - bitcoin blockhain zasticen sa sha256
+	- Uloga hashiranja je zastita podataka
+	- Njime se proizvodi podatak tocno odredjene duljine bez obzira na
+	  duljinu ulaznog podatka.
+	- Rezultat hashiranja jednog slova dat ce identicnu duljinu izlaza
+	  kao i hash neke skripte.
+	- Bilo kakva promjena podataka ce dat veoma uocljivu razliku ukoliko
+	  se ponovo hashiranja
+	- SHA256 je algoritam za kriptografsko sazimanje poruka
+	- SHA-256 je dio SHA-2 skupa koje je razvio Nacionalni institut za standarde
+	  i tehnologiju
+	- Koristi blokovski algoritam koji moze obraditi poruke do velicine od 2^64 bita
+	  i proizvesti fiksni izlazni niz duljine 256 bita, bez obzira na velicinu ulazne
+	  poruke
+	- taj izlazni niz se zove SAZETAK ili HASH poruke i koristi se za provjeru
+	  integriteta podataka ili za potvrdu autenticnosti poruke
+	- Otporan na brute force napade
+	- dekodiranje hasha traje milijune godina
+	- broj mogucih kombinacija je 2^256
+	- ako 2 podatka daju istu vrijednost, naziva se COLLISION
+
+Privatni i javni kljuc
+	- koriste se za potpisivanje i verifikaciju transakcija i osiguravanje
+	  sigurnosti i privatnosti u mrezi
+	- tajni kljuc - potpisivanje transakcije, nikad se ne djeli s drugima
+	- javni kljuc - verifikacija digitalnog potpisa, svi u chainu ga vide
+	- ovo omogucava privatnost transakcija
+	- omogucavaju implementaciju sustava pametnih ugovora koji se izvrsavaju
+	  automatski bez potrebe za posrednicima ili trecim stranama
+	
+Elipticne krivulje - zbrajanje 2 tocke na krivulji da se dobije treca tocka
+				   - omogucuje stvaranje sigurnih kriptografskih kljuceva
+				     za digitalni potpis i enkripciju
+				   - ZA GENERIRANJE JAVNOG I PRIVATNOG KLJUCA
+				   - prednost: ucinkovitost (zahtjevaju manje bitova za stvaranje kljuceva)
+				   - koriste velike brojeve koji su preveliki za bruteforce napade
+				   - kvantna racunala mogu desifrirat samo neke kljuceve,
+				     one sa faktorizacijom velikih brojeva
+				   -
+	
